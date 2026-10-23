@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "ئىشچىلار بىلەن تىزىملاش سىستېمىسى",
+  "version": "2.1.0",
+  "description": "ئىشچىلارنى تىزىملاش، كەلمە-كەتتىنى باشقۇرۇش ۋە مەخپىي باشقۇرۇش قىستۇرمىسى",
+  "permissions": [
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "app_index.html"
+  },
+  "side_panel": {
+    "default_path": "app_index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["floating_button.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
